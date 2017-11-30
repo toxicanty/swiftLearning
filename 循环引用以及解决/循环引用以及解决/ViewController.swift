@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         cpCompletion = completion
         
         DispatchQueue.global().async {
-            completion()
+            completion()//
         }
     }
 

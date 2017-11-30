@@ -125,6 +125,7 @@ class ViewController: UIViewController {
             let json = ["news1","new2","new3"]
  
             DispatchQueue.main.async {
+                // swift4.0这里又有了变换,原先是尾随闭包(tail Closure)内不允许嵌套尾随闭包,现在可以了
                 print("mainThread refresh UI \(Thread.current)") // number = 1, mainThread
                 // 回调 -> 执行 closure(get the data from closure)
                 completionBlock(json)//define block

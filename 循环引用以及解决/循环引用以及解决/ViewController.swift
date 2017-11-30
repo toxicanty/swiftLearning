@@ -16,10 +16,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // method 1: Objective-C way
+        /*
+        weak var weakSelf = self
         // Do any additional setup after loading the view, typically from a nib.
         loadData {
-            print(self.view)
+            // if you call like this,deinit with not called
+           //print(self.view)
+            // 0这个值是瞎传的,默认值
+            print(weakSelf?.view ?? 0)//Optional type
         }
+        */
+        // method 2:recommend by swift office
+        loadData {
+            [weak self] in
+            print(self?.view ?? 0)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

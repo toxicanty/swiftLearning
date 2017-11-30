@@ -91,15 +91,30 @@ class ViewController: UIViewController {
         print("demo test: closure with param = \(normalC)")
         
         //loadData()
+        // 1. basic
         loadData {(result) in
             print("get the news = \(result)")
+        }
+       // If you tape loadData(),and the cursor is inside the bracket, you can use "ESC" button to fill the funtion.
+        
+        // 2. tail Closure , the format figure
+        loadData(completionBlock: {(result:[String])->()
+        in
+        print("get the news again = \(result)")
+        
+       })
+        
+        // 3. resultt just a param you want to use
+        loadData { (resultt) in
+             print("get the news again and again = \(resultt)")
         }
     }
     
     /*******************Change of GCD************************/
     //func loadData() -> (){
-    func loadData(completion:@escaping (_ result:[String])->()) -> (){
+    func loadData(completionBlock:@escaping (_ result:[String])->()) -> (){
         ///Users/toxicanty/Desktop/githubUploadTest/githubUploadTest/ViewController.swift:98:32: Function types cannot have argument labels; use '_' before 'result'
+        //在Swift3中，闭包默认是非逃逸的。在Swift3之前，事情是完全相反的：那时候逃逸闭包是默认的，对于非逃逸闭包，你需要标记@noescaping。Swift3的行为更好。因为它默认是安全的：如果一个函数参数可能导致引用循环，那么它需要被显示地标记出来。@escaping标记可以作为一个警告，来提醒使用这个函数的开发者注意引用关系。非逃逸闭包可用被编译器高度优化，快速的执行路径将被作为基准而使用，除非你在有需要的时候显式地使用其他方法。
         DispatchQueue.global().async {//async = 异步, sync = 同步
             print("Opration which takes lots of time \(Thread.current)")// number = 3
             
@@ -108,13 +123,11 @@ class ViewController: UIViewController {
             
             // some data need to use outside like block
             let json = ["news1","new2","new3"]
-            
-            
-            // mark: 在global的括号内
+ 
             DispatchQueue.main.async {
                 print("mainThread refresh UI \(Thread.current)") // number = 1, mainThread
                 // 回调 -> 执行 closure(get the data from closure)
-                completion(json)
+                completionBlock(json)//define block
             }
         }
     }

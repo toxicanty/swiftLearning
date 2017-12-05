@@ -83,6 +83,13 @@ class ListViewController: UITableViewController {
         
         if let  indexPath =  sender as? IndexPath{
             vc.person = personList[indexPath.row]
+            
+            // 先在detailViewController里,写闭包回调,最后回来写闭包里的东西
+            vc.completionCallBack = {
+               //闭包才要用self,而且,at后面的参数是数组类型
+                self.tableView.reloadRows(at: [indexPath], with:.automatic)
+               // 编译器可以推测出类型,可以直接用.automatic代替UITableViewRowAnimation.automatic
+            }
         }
         
     }
@@ -91,7 +98,7 @@ class ListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // segue
+        // segue:注意storyboard中的segue别忘了打tag,否则找不到
         performSegue(withIdentifier: "list2detail", sender: indexPath)
     }
     

@@ -15,6 +15,10 @@ class DetailViewController: UITableViewController {
     @IBOutlet weak var titleTF: UITextField!
     
     var person:Person?
+    
+    var completionCallBack:(()->())? //闭包可选,不要写成下面的样子了
+    //var completionCallBack:()->()?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +34,21 @@ class DetailViewController: UITableViewController {
 
     @IBAction func saveAction(_ sender: Any) {//swift3.0是AnyObject
         print("Save")
+        
+        //2. person的地址还是之前的地址,赋值回去就可以了
+        // 用UI更新person的内容
+        person?.name = nameTF.text
+        person?.title = titleTF.text
+        person?.phone = phoneTF.text
+        
+        // 3. 执行闭包回调
+        // oc里,执行block钱都必须判断是否有值, 否则容易崩溃.
+        // !强行解包(一定不要!,要为每个惊叹号负责)
+        // ?可选解包,如果闭包为nil,就什么都不做
+        completionCallBack?()
+        
+        // 4. 返回上一级界面(不关心的返回值, 用_忽略一切不关心的东西)
+       _ = navigationController?.popViewController(animated: true)
     }
     
 }

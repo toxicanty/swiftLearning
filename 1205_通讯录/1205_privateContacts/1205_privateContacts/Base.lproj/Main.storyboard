@@ -50,7 +50,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="联系人列表" id="AZx-lb-WRb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hmE-Ii-TbS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hmE-Ii-TbS">
+                            <connections>
+                                <segue destination="fY5-VX-eyQ" kind="show" id="Twq-lM-MPt"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="fY5-VX-eyQ" kind="show" identifier="list2detail" id="yqq-AY-gk9"/>
@@ -63,7 +67,7 @@
         <!--明细-->
         <scene sceneID="ZzO-L7-4yN">
             <objects>
-                <tableViewController id="fY5-VX-eyQ" sceneMemberID="viewController">
+                <tableViewController id="fY5-VX-eyQ" customClass="DetailViewController" customModule="_205_privateContacts" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OQ1-Cx-rM6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,8 +155,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="明细" id="Q8J-cW-gSl">
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="dpL-pN-szP"/>
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="dpL-pN-szP">
+                            <connections>
+                                <action selector="saveAction:" destination="fY5-VX-eyQ" id="Z6Z-On-j3F"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nameTF" destination="TLY-UQ-jWj" id="QNZ-10-7KW"/>
+                        <outlet property="phoneTF" destination="34T-tP-PDF" id="typ-4f-YFc"/>
+                        <outlet property="titleTF" destination="1ME-KR-NKc" id="aqc-eJ-wzC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGx-Ti-8ef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,4 +188,7 @@
             <point key="canvasLocation" x="-451" y="151"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Twq-lM-MPt"/>
+    </inferredMetricsTieBreakers>
 </document>

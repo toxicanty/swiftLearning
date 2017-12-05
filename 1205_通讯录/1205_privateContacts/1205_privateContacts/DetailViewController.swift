@@ -28,7 +28,7 @@ class DetailViewController: UITableViewController {
     }
     
 
-    @IBAction func saveAction(_ sender: Any) {
+    @IBAction func saveAction(_ sender: Any) {//swift3.0是AnyObject
         print("Save")
     }
     

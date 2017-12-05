@@ -85,6 +85,7 @@ class ListViewController: UITableViewController {
             vc.person = personList[indexPath.row]
             
             // 先在detailViewController里,写闭包回调,最后回来写闭包里的东西
+            // 1205 23:40 想清楚为什么要在这里执行闭包内容,哪里过来的,就回到哪里,这是回调的含义.
             vc.completionCallBack = {
                //闭包才要用self,而且,at后面的参数是数组类型
                 self.tableView.reloadRows(at: [indexPath], with:.automatic)

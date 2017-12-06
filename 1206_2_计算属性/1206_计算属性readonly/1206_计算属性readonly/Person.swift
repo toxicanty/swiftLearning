@@ -31,7 +31,13 @@ class Person: NSObject {
         }
     }
     
+    //计算属性
     var number:String{
             return "number = " + (name ?? "")
     }
+    
+    // 懒加载
+    lazy var number2:String = {()->String in
+        return "number2 = " + (name ?? "")
+    }()
 }

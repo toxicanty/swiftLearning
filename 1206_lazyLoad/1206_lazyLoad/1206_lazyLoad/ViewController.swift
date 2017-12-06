@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 //        let  l = DemoLabel()
 //        // 这里可以设置label的属性
 //        return l
-//    }
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -17,6 +17,9 @@ class ViewController: UIViewController {
         p.name = "laofeng"//调用setter方法,
         print(p.name as Any)//调用getter方法
         
+        print(p.title)
+        print(p.number)
+        p.number = "abdc"
         
     }
 

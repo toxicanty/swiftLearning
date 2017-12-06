@@ -19,7 +19,8 @@ class ViewController: UIViewController {
         
         print(p.title)
         print(p.number)
-        p.number = "abdc"
+        
+        print(p.number2)
         
     }
 

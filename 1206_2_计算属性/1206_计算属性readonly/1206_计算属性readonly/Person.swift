@@ -37,7 +37,8 @@ class Person: NSObject {
     }
     
     // 懒加载
-    lazy var number2:String = {()->String in
-        return "number2 = " + (name ?? "")
+    //lazy var number2:String = {()->String in
+    lazy var number2:String = {
+        return "number2 = " + (self.name ?? "")//swift3中, 因为在闭包中,所以需要用self.来声明作用域,实测发现Swift4.0中,不需要写self.
     }()
 }

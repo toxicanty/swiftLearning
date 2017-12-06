@@ -35,6 +35,11 @@ class DetailViewController: UITableViewController {
     @IBAction func saveAction(_ sender: Any) {//swift3.0是AnyObject
         print("Save")
         
+        // 1. 如果person为空, 实例化之, 使新建联系人的时候,能通过textField给实例赋值
+        if person == nil{
+            person = Person()
+        }
+        
         //2. person的地址还是之前的地址,赋值回去就可以了
         // 用UI更新person的内容
         person?.name = nameTF.text

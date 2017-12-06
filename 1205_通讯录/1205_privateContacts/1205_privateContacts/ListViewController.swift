@@ -91,6 +91,25 @@ class ListViewController: UITableViewController {
                 self.tableView.reloadRows(at: [indexPath], with:.automatic)
                // 编译器可以推测出类型,可以直接用.automatic代替UITableViewRowAnimation.automatic
             }
+        }else{
+            /*************以下写法会有循环引用********************/
+            // 没有indexPath就是新建联系人
+            //            vc.completionCallBack = {
+            //                guard let person = vc.person else{
+            //                    return
+            //                }
+            //                self.personList.insert(person, at: 0)
+            //                self.tableView.reloadData()
+            //}
+            /*************以上写法会有循环引用********************/
+            // 没有indexPath就是新建联系人
+                        vc.completionCallBack = {[weak vc] in
+                            guard let person = vc?.person else{//变成可选了
+                                return
+                            }
+                            self.personList.insert(person, at: 0)
+                            self.tableView.reloadData()
+            }
         }
         
     }
@@ -103,4 +122,8 @@ class ListViewController: UITableViewController {
         performSegue(withIdentifier: "list2detail", sender: indexPath)
     }
     
+    @IBAction func newPerson(_ sender: Any) {
+        performSegue(withIdentifier: "list2detail", sender: AnyObject.self)
+        print("xxxx")
+    }
 }

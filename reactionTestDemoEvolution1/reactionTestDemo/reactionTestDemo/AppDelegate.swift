@@ -24,16 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 1208 输出info.plist
         //print(Bundle.main.infoDictionary ?? "没有值")//swift3.0是main()
         
-        let clsName = Bundle.main.namespace
-        
-        //NSClassFromString(clsName) 是AnyClass类
-        let cls = NSClassFromString(clsName) as? ViewController.Type//记住就好了
-        let vc = cls?.init()
+        let vc = Bundle.main.namespace
         window?.rootViewController = vc
-        
         //3. 让window可见
         window?.makeKeyAndVisible()
-       
         return true
     }
 

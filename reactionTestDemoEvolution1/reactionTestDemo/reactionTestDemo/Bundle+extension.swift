@@ -15,13 +15,17 @@ extension Bundle{
 //        return  Bundle.main.infoDictionary?["CFBundleName"] as? String ?? "" + "." + "ViewController"//字符串拼接
 //    }
     
-    // 改进
-    var namespace:String{
-        let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String ?? ""
+    var namespace:ViewController{
+        let bundleName = infoDictionary?["CFBundleName"] as? String ?? ""
         let full = bundleName + "." + "ViewController"
-        return full
-        //return  (Bundle.main.infoDictionary?["CFBundleName"] as? String ?? "" + "." + "ViewController")
+        
+        let cls = NSClassFromString(full) as? ViewController.Type//记住就好了
+        
+        // 使用类创建控制器
+        guard let vc = cls?.init() else{
+            return ViewController()//这么写不知道合不合理
         }
-    
+        return vc
+        }
 }
 

@@ -22,13 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let clsName = "reactionTestDemo.ViewController"
         // 优化, 这里改成从info.plist获取
         // 1208 输出info.plist
-        print(Bundle.main.infoDictionary ?? "没有值")//swift3.0是main()
-        let ns = Bundle.main.infoDictionary?["CFBundleName"] as? String ?? ""
-        //String ?? 不能写成 String?? 会报错
-        let clsName = ns + "." + "ViewController"//字符串拼接
-        print("clsName === \(clsName)")
+        //print(Bundle.main.infoDictionary ?? "没有值")//swift3.0是main()
+        
+        let clsName = Bundle.main.namespace
+        
         //NSClassFromString(clsName) 是AnyClass类
-        let cls = NSClassFromString(clsName) as? UIViewController.Type//记住就好了
+        let cls = NSClassFromString(clsName) as? ViewController.Type//记住就好了
         let vc = cls?.init()
         window?.rootViewController = vc
         

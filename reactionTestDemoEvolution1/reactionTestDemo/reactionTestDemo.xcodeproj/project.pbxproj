@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		690339341FD94E5800A2F517 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690339331FD94E5800A2F517 /* Bundle+extension.swift */; };
+		690339371FD95BC500A2F517 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690339361FD95BC500A2F517 /* UIKit.framework */; };
 		6934F5C61FD9319100C8F530 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6934F5C51FD9319100C8F530 /* AppDelegate.swift */; };
 		6934F5C81FD9319100C8F530 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6934F5C71FD9319100C8F530 /* ViewController.swift */; };
 		6934F5CB1FD9319100C8F530 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6934F5C91FD9319100C8F530 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		690339331FD94E5800A2F517 /* Bundle+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extension.swift"; sourceTree = "<group>"; };
+		690339361FD95BC500A2F517 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6934F5C21FD9319100C8F530 /* reactionTestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reactionTestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6934F5C51FD9319100C8F530 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6934F5C71FD9319100C8F530 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690339371FD95BC500A2F517 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		690339351FD95BC500A2F517 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				690339361FD95BC500A2F517 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6934F5B91FD9319100C8F530 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +94,7 @@
 				6934F5D91FD9319200C8F530 /* reactionTestDemoTests */,
 				6934F5E41FD9319200C8F530 /* reactionTestDemoUITests */,
 				6934F5C31FD9319100C8F530 /* Products */,
+				690339351FD95BC500A2F517 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

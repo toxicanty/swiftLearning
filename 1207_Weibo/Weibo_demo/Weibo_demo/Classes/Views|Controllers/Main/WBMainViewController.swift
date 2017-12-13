@@ -16,6 +16,15 @@ class WBMainViewController: UITabBarController {
         super.viewDidLoad()
         
         setupChildControllers()
+        setComposeButton()
+        
+    }
+    //懒加载按钮
+    private lazy var composeButton: UIButton = UIButton.yw_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
+    
+    @objc func composeMessage(sender btn:UIButton)->(){
+        print("点击了发送微博按钮")
+        print(btn)
     }
 }
 
@@ -27,6 +36,7 @@ extension WBMainViewController{
         let array = [
             ["clsName":"WBHomeViewController","title":"首页","imageName":"home"],
             ["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover"],
+            ["clsName":"WBDiscoverViewController"],
             ["clsName":"WBMessageViewController","title":"消息","imageName":"message_center"],
             ["clsName":"WBProfileViewController","title":"个人","imageName":"profile"],
         ]
@@ -39,22 +49,20 @@ extension WBMainViewController{
         
         // 设置子控制器(viewControllers是UITabBarController的属性)
         viewControllers = arrayM
-        
     }
     
-   
     /// 使用字典创建一个子控制器
     ///
     /// - Parameter dict: 信息字典[clsName,title,imageName]
     /// - Returns: 子控制器
     private func controller(dict:[String:String]) -> UIViewController{
+        
         // 1. 取得字典内容
        guard let clsName = dict["clsName"],
              let title = dict["title"],
              let imageName = dict["imageName"],
              let cls  = NSClassFromString(Bundle.main.namespace + "." + clsName) as? UIViewController.Type
         else{
-            
             return UIViewController()
         }
          
@@ -77,7 +85,7 @@ extension WBMainViewController{
         // tintColor也没有了, 最终实测发现只能如下写法(猜测设置图片也是类似的写法)
         vc.tabBarItem.setTitleTextAttributes(
             [NSAttributedStringKey.foregroundColor : UIColor.orange],
-            for: .highlighted)
+            for: .selected)
         
         // 5. 调整文字大小(这里不可以设置.highlighted,因为没有主动设置高亮)
         //public static var highlighted: UIControlState { get } // used when UIControl isHighlighted is set
@@ -90,6 +98,20 @@ extension WBMainViewController{
         // 注意写法变了, swift3.0 WBNavigationController(rootViewController:vc)
         let nav = WBNavigationController.init(rootViewController: vc)
         return nav
+    }
+    
+    private func setComposeButton(){
+        tabBar.addSubview(composeButton)
+        // 计算按钮位置,方法1
+        //let count = CGFloat(childViewControllers.count)//整数转浮点
+        //let w = tabBar.bounds.width / count
+        
+        //composeButton.frame = CGRect(x:composeButton.frame.origin.x + 2*w, y: composeButton.frame.origin.x, width: composeButton.frame.size.width, height: composeButton.frame.size.height)
+        // 也可以CGRectInset 整数向内缩进,辅助向外扩展.
+        
+       // 方法2
+        composeButton.center = CGPoint(x: tabBar.center.x, y: composeButton.center.y)
+        composeButton.addTarget(self, action: #selector(composeMessage(sender:)), for: UIControlEvents.touchUpInside)
     }
     
     

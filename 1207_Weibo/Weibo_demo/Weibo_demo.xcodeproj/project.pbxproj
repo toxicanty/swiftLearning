@@ -34,6 +34,7 @@
 		69033A291FE0CB2E00A2F517 /* NSString+CZHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 69033A161FE0CB2E00A2F517 /* NSString+CZHash.m */; };
 		69033A2A1FE0CB2E00A2F517 /* NSAttributedString+CZAdditon.m in Sources */ = {isa = PBXBuildFile; fileRef = 69033A1B1FE0CB2E00A2F517 /* NSAttributedString+CZAdditon.m */; };
 		69033A2B1FE0CB2E00A2F517 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 69033A1C1FE0CB2E00A2F517 /* NSArray+Log.m */; };
+		69033A301FE10E2600A2F517 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69033A2F1FE10E2600A2F517 /* Bundle+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		69033A1C1FE0CB2E00A2F517 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		69033A1D1FE0CB2E00A2F517 /* NSString+CZPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CZPath.h"; sourceTree = "<group>"; };
 		69033A2D1FE0D37B00A2F517 /* Weibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weibo-Bridge.h"; sourceTree = "<group>"; };
+		69033A2F1FE10E2600A2F517 /* Bundle+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Bundle+extension.swift"; path = "../../../../../../reactionTestDemoEvolution1/reactionTestDemo/reactionTestDemo/Bundle+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +259,7 @@
 		690339F01FD993B700A2F517 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				69033A2E1FE10D8400A2F517 /* Extensions */,
 				69033A001FE0CB2E00A2F517 /* Additions */,
 			);
 			path = Tools;
@@ -303,6 +306,14 @@
 				69033A1D1FE0CB2E00A2F517 /* NSString+CZPath.h */,
 			);
 			path = Additions;
+			sourceTree = "<group>";
+		};
+		69033A2E1FE10D8400A2F517 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				69033A2F1FE10E2600A2F517 /* Bundle+extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				690339F71FD994BE00A2F517 /* WBBaseViewController.swift in Sources */,
+				69033A301FE10E2600A2F517 /* Bundle+extension.swift in Sources */,
 				69033A241FE0CB2E00A2F517 /* NSString+CZPath.m in Sources */,
 				69033A2A1FE0CB2E00A2F517 /* NSAttributedString+CZAdditon.m in Sources */,
 				690339FF1FD9956100A2F517 /* WBProfileViewController.swift in Sources */,

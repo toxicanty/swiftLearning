@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //sleep(2)
         window = UIWindow()
-        window?.backgroundColor = UIColor.white
-         window?.rootViewController = WBMainViewController()
+        window?.backgroundColor = UIColor.black
+         window?.rootViewController = WBHomeViewController()
         window?.makeKeyAndVisible()
         return true
     }

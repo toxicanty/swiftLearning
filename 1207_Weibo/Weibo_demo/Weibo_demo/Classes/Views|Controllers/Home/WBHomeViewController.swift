@@ -12,7 +12,7 @@ class WBHomeViewController: WBBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = UIColor.yw_random()
         // Do any additional setup after loading the view.
     }
 

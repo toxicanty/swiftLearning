@@ -36,6 +36,7 @@
 		69033A2B1FE0CB2E00A2F517 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 69033A1C1FE0CB2E00A2F517 /* NSArray+Log.m */; };
 		69033A301FE10E2600A2F517 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69033A2F1FE10E2600A2F517 /* Bundle+extension.swift */; };
 		69033A331FE1741F00A2F517 /* WBTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69033A321FE1741F00A2F517 /* WBTestViewController.swift */; };
+		69033A351FE2518700A2F517 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69033A341FE2518700A2F517 /* UIBarButtonItem+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		69033A2D1FE0D37B00A2F517 /* Weibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weibo-Bridge.h"; sourceTree = "<group>"; };
 		69033A2F1FE10E2600A2F517 /* Bundle+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Bundle+extension.swift"; path = "../../../../../../reactionTestDemoEvolution1/reactionTestDemo/reactionTestDemo/Bundle+extension.swift"; sourceTree = "<group>"; };
 		69033A321FE1741F00A2F517 /* WBTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBTestViewController.swift; sourceTree = "<group>"; };
+		69033A341FE2518700A2F517 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				69033A2F1FE10E2600A2F517 /* Bundle+extension.swift */,
+				69033A341FE2518700A2F517 /* UIBarButtonItem+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 			files = (
 				690339F71FD994BE00A2F517 /* WBBaseViewController.swift in Sources */,
 				69033A301FE10E2600A2F517 /* Bundle+extension.swift in Sources */,
+				69033A351FE2518700A2F517 /* UIBarButtonItem+Extension.swift in Sources */,
 				69033A241FE0CB2E00A2F517 /* NSString+CZPath.m in Sources */,
 				69033A2A1FE0CB2E00A2F517 /* NSAttributedString+CZAdditon.m in Sources */,
 				690339FF1FD9956100A2F517 /* WBProfileViewController.swift in Sources */,

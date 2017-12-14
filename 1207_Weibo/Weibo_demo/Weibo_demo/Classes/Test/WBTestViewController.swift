@@ -29,17 +29,13 @@ class WBTestViewController: WBBaseViewController {
         //view.backgroundColor = UIColor.yw_random()
         //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", style: .plain, target: self, action: #selector(nextVC))
         
-        let btn: UIButton = UIButton.yw_textButton("下一个", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
-        btn.addTarget(self, action: #selector(nextVC), for: UIControlEvents.touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btn)
+        //let btn: UIButton = UIButton.yw_textButton("下一个", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
+//        btn.addTarget(self, action: #selector(nextVC), for: UIControlEvents.touchUpInside)
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btn)
         
-        
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个",  target: self, action: #selector(nextVC))
         super.setupUI()
-        
-        
     }
-
 }
 
 

@@ -12,25 +12,34 @@ class WBHomeViewController: WBBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
-        // Do any additional setup after loading the view.
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func setupUI(){
+        super.setupUI()
+        
+        // 注释掉:下面优化
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", style: .plain, target: self, action: #selector(showFriend))
+        // 虽然直接改navigationBarItem的颜色为橙色可以, 但是一个UI细节,在左边侧右滑返回上层时,按钮文字的颜色很模糊, 并不是很好的体验. 所以,最好用自定义方式处理, 做一个橙色按钮.
+        
+        let btn: UIButton = UIButton.yw_textButton("好友", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
+        btn.addTarget(self, action: #selector(showFriend), for: UIControlEvents.touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
     }
-    */
-
+    
+    @objc private func showFriend(){
+        print(#function)
+        let vc = WBTestViewController()
+        //vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+//    @objc private func btnAction(){
+//        print(#function)
+//    }
 }
+
+extension WBHomeViewController{
+    
+}
+
+

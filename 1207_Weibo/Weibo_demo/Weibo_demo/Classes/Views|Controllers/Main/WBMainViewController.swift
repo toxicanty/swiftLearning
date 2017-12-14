@@ -22,7 +22,7 @@ class WBMainViewController: UITabBarController {
     //懒加载按钮
     private lazy var composeButton: UIButton = UIButton.yw_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
     
-    @objc func composeMessage(sender btn:UIButton)->(){
+    @objc private func composeMessage(sender btn:UIButton)->(){
         print("点击了发送微博按钮")
         print(btn)
     }
@@ -113,6 +113,5 @@ extension WBMainViewController{
         composeButton.center = CGPoint(x: tabBar.center.x, y: composeButton.center.y)
         composeButton.addTarget(self, action: #selector(composeMessage(sender:)), for: UIControlEvents.touchUpInside)
     }
-    
-    
+
 }

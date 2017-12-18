@@ -9,7 +9,9 @@
 import UIKit
 
 class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
-    //PROGRAM MARK : FSFSDF
+    
+   private var logon = false
+    
     // 没有登录,就不创建
     var tableView: UITableView?
     //刷新控件
@@ -44,16 +46,19 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
    func setupUI(){
         view.backgroundColor = UIColor.yw_random()
         setupNav()
-        setupTableView()
-    //'automaticallyAdjustsScrollViewInsets' was deprecated in iOS 11.0: Use UIScrollView's contentInsetAdjustmentBehavior instead
+    
+    //setupTableView()
+    logon ? setupTableView() : setupVisitView()
+    
+    // automaticallyAdjustsScrollViewInsets' was deprecated in iOS 11.0: Use UIScrollView's contentInsetAdjustmentBehavior instead
     
     }
     
     // 空方法, 具体实现要子类自己去实现
     // 1218 现在要加上objc, 因为要对应下拉刷新的target方法...
     @objc func loadData(){
-        
-        
+        // 如果没有重写loadData应该让菊花停止
+        refreshControl?.endRefreshing()
     }
     // MARK: - 设置导航栏
     func setupNav(){
@@ -64,6 +69,13 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         // 设置渲染颜色(原来的太亮了,透明效果不太好看)
         navigationBar.barTintColor = UIColor.yw_color(withHex: 0xF6F6F6)
         //navigationBar.setTitleVerticalPositionAdjustment(10, for: UIBarMetrics.default)
+    }
+    // MARK: - 设置没有登录时的界面
+    func setupVisitView(){
+        print("没有登录时候的界面 -- 设置访客视图")
+        
+        let visitorVIew = WBVisitorView(frame: view.bounds)
+        view.insertSubview(visitorVIew, belowSubview: navigationBar)
     }
     // MARK: - 设置tableView
     func setupTableView(){
@@ -86,6 +98,8 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         // 设置刷新控件
         refreshControl = UIRefreshControl()
         tableView?.addSubview(refreshControl!)
+        
+        // 添加监听方法
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
         
     }

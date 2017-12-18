@@ -11,7 +11,7 @@ import UIKit
 class WBNavigationController: UINavigationController {
     
     override func viewDidLoad() {
-        navigationBar.isHidden = false //隐藏方式不可用:不能push了,整个上面都没有了
+        navigationBar.isHidden = true //隐藏方式不可用:不能push了,整个上面都没有了
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.darkGray]//改变标题颜色
         
         

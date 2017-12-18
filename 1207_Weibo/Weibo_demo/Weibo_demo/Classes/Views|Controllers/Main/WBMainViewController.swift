@@ -18,6 +18,11 @@ class WBMainViewController: UITabBarController {
         setupChildControllers()
         setComposeButton()
         
+        
+    }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+
+        return .portrait
     }
     //懒加载按钮
     private lazy var composeButton: UIButton = UIButton.yw_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
@@ -26,6 +31,8 @@ class WBMainViewController: UITabBarController {
         print("点击了发送微博按钮")
         print(btn)
     }
+    
+    
 }
 
 extension WBMainViewController{

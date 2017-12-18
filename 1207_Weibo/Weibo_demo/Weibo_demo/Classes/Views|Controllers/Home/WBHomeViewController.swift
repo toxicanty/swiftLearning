@@ -27,13 +27,16 @@ class WBHomeViewController: WBBaseViewController {
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
         
         // 优化2: 简化代码...
-      navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriend))
+//      navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriend))
+        // 优化3: 改成自定义的
+        // 1218 撤销自定义方式, 因为statusbar上面的20个像素没法处理.
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriend))
+        //navItem.title
     }
     
     @objc private func showFriend(){
         print(#function)
         let vc = WBTestViewController()
-        //vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -26,15 +26,26 @@ class WBBaseViewController: UIViewController {
     override var title: String?{
         didSet{
             navItem.title = title
+            navigationBar.layoutSubviews()
+            
+            
         }
     }
     
+    
+    
    func setupUI(){
         view.backgroundColor = UIColor.yw_random()
-    
+        UIApplication.shared.isStatusBarHidden = false
+        
+     navigationBar.items = [navItem]
         // 添加导航条
-    view.addSubview(navigationBar)
-    navigationBar.items = [navItem]
+        view.addSubview(navigationBar)
+    
+        // 设置渲染颜色(原来的太亮了,透明效果不太好看)
+    navigationBar.barTintColor = UIColor.yw_color(withHex: 0xF6F6F6)
+    //navigationBar.setTitleVerticalPositionAdjustment(10, for: UIBarMetrics.default)
+    
     }
 }
 

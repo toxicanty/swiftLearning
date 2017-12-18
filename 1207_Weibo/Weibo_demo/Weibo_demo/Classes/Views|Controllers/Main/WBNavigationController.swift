@@ -11,9 +11,10 @@ import UIKit
 class WBNavigationController: UINavigationController {
     
     override func viewDidLoad() {
+        navigationBar.isHidden = false //隐藏方式不可用:不能push了,整个上面都没有了
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.darkGray]//改变标题颜色
         
-        // 隐藏系统的navigationBar
-        navigationBar.isHidden = true //一种方法...不能push了,整个上面都没有了.
+        
     }
  
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
@@ -22,7 +23,15 @@ class WBNavigationController: UINavigationController {
             
            viewController.hidesBottomBarWhenPushed = true
         }
+        
+//        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 49, height: 29))
+//        btn.titleLabel?.text = "123"
+//        btn.setTitleColor(UIColor.purple, for: UIControlState.normal)
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
+        
         super.pushViewController(viewController, animated: true)
+        
+        
     }
 }
 

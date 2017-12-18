@@ -33,7 +33,12 @@ class WBTestViewController: WBBaseViewController {
 //        btn.addTarget(self, action: #selector(nextVC), for: UIControlEvents.touchUpInside)
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btn)
         
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个",  target: self, action: #selector(nextVC))
+        // 优化:
+        // 1218 撤销自定义方式, 因为statusbar上面的20个像素没法处理.
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个",  target: self, action: #selector(nextVC))
+        
+        
         super.setupUI()
     }
 }

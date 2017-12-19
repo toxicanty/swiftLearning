@@ -26,7 +26,8 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
     // 自定义导航条目
     lazy var navItem = UINavigationItem()
     
-    
+    // 访客视图字典信息, 外部传递
+    var vistorInfoDict:[String : String]?
     
 
     override func viewDidLoad() {
@@ -76,6 +77,9 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         let visitorVIew = WBVisitorView(frame: view.bounds)
         view.insertSubview(visitorVIew, belowSubview: navigationBar)
+        
+        // 设置访客视图信息
+        visitorVIew.visitorInfo = vistorInfoDict//基类控制器获得的字典,传递给vistorVIew处理.
     }
     // MARK: - 设置tableView
     func setupTableView(){
@@ -103,6 +107,8 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
         
     }
+    
+    
     
     // MARK: - tableView的代理方法
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

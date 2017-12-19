@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Weibo_demo/Classes/Views|Controllers/Main/WBBaseViewController.swift"
-            timestampString = "535297921.300951"
+            timestampString = "535363344.59397"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "setupVisitView()"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "setupNav()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

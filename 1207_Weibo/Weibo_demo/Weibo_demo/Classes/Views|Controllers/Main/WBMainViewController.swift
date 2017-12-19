@@ -60,6 +60,9 @@ extension WBMainViewController{
         // 测试转换成plist
         //(array as NSArray).write(toFile: "/Users/toxicanty/Desktop/demo.plist", atomically: true)
         
+      let data = try! JSONSerialization.data(withJSONObject: array, options: [])//OC写0,swift写[]
+     (data as NSData).write(toFile: "/Users/toxicanty/Desktop/demo.json", atomically: true)
+        
         var arrayM = [UIViewController]()
         for dict in array {
             arrayM.append(controller(dict: dict))

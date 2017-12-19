@@ -38,6 +38,7 @@
 		69033A331FE1741F00A2F517 /* WBTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69033A321FE1741F00A2F517 /* WBTestViewController.swift */; };
 		69033A351FE2518700A2F517 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69033A341FE2518700A2F517 /* UIBarButtonItem+Extension.swift */; };
 		69961FC01FE7F24900C3405F /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69961FBF1FE7F24900C3405F /* WBVisitorView.swift */; };
+		69961FC21FE9146200C3405F /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 69961FC11FE9146100C3405F /* demo.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		69033A321FE1741F00A2F517 /* WBTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBTestViewController.swift; sourceTree = "<group>"; };
 		69033A341FE2518700A2F517 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		69961FBF1FE7F24900C3405F /* WBVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
+		69961FC11FE9146100C3405F /* demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 		690339EF1FD993B700A2F517 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				69961FC11FE9146100C3405F /* demo.json */,
 				69961FBE1FE7F1AB00C3405F /* VisitView */,
 				690339F21FD9944D00A2F517 /* WBMainViewController.swift */,
 				690339F41FD9949500A2F517 /* WBNavigationController.swift */,
@@ -451,6 +454,7 @@
 			files = (
 				690339C51FD98E2200A2F517 /* LaunchScreen.storyboard in Resources */,
 				690339C21FD98E2200A2F517 /* Assets.xcassets in Resources */,
+				69961FC21FE9146200C3405F /* demo.json in Resources */,
 				690339C01FD98E2200A2F517 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -40,31 +40,45 @@ extension WBMainViewController{
     /// 设置所有子控制器
     private func setupChildControllers(){
         
-        let array = [
-            ["clsName":"WBHomeViewController",
-             "title":"首页","imageName":"home",
-             "visitorInfo":["imageName":"","message":"关注一些人,回这里看看有什么惊喜"]],
-            
-            ["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover",
-             "visitorInfo":["imageName":"visitordiscover_image_message","message":"登录后,别人评论你的微博,都会在这里收到通知"]],
-            
-            ["clsName":"WBDiscoverViewController"],
-            
-            ["clsName":"WBMessageViewController","title":"消息","imageName":"message_center",
-             "visitorInfo":["imageName":"visitordiscover_image_message","message":"登陆后,最新最热微博尽在掌握"]],
-            
-            ["clsName":"WBProfileViewController","title":"个人","imageName":"profile",
-             "visitorInfo":["imageName":"visitordiscover_image_profile","message":"登陆后,你的微博,相册,个人资料会显示在这里,展示给别人"]],
-        ]
+        // 1219 17:30 改成由本地json加载数据
+        guard let path = Bundle.main.path(forResource: "demo.json", ofType: nil),
+            // 这句拿不到, 1. 路径 2. 加载NSData 3. 反序列化转成数组.
+            //let arrayForLocal = NSArray(contentsOfFile: path) as? [[String : Any]]
+           let tempdata = NSData(contentsOfFile: path),
+            let arrayForLocal = try? JSONSerialization.jsonObject(with: tempdata as Data, options: []) as? [[String : Any]]//弱try, data as Data...
+            else{
+            return
+        }
+        print(path)
+        
+/**********************************************************************************/
+        
+//        let array = [
+//            ["clsName":"WBHomeViewController",
+//             "title":"首页","imageName":"home",
+//             "visitorInfo":["imageName":"","message":"关注一些人,回这里看看有什么惊喜"]],
+//
+//            ["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover",
+//             "visitorInfo":["imageName":"visitordiscover_image_message","message":"登录后,别人评论你的微博,都会在这里收到通知"]],
+//
+//            ["clsName":"WBDiscoverViewController"],
+//
+//            ["clsName":"WBMessageViewController","title":"消息","imageName":"message_center",
+//             "visitorInfo":["imageName":"visitordiscover_image_message","message":"登陆后,最新最热微博尽在掌握"]],
+//
+//            ["clsName":"WBProfileViewController","title":"个人","imageName":"profile",
+//             "visitorInfo":["imageName":"visitordiscover_image_profile","message":"登陆后,你的微博,相册,个人资料会显示在这里,展示给别人"]],
+//        ]
         
         // 测试转换成plist
         //(array as NSArray).write(toFile: "/Users/toxicanty/Desktop/demo.plist", atomically: true)
         
-      let data = try! JSONSerialization.data(withJSONObject: array, options: [])//OC写0,swift写[]
-     (data as NSData).write(toFile: "/Users/toxicanty/Desktop/demo.json", atomically: true)
-        
+        // 原来是array
+//        let data = try! JSONSerialization.data(withJSONObject: arrayForLocal ?? [], options: [])//OC写0,swift写[]
+//     (data as NSData).write(toFile: "/Users/toxicanty/Desktop/demo.json", atomically: true)
+/**********************************************************************************/
         var arrayM = [UIViewController]()
-        for dict in array {
+        for dict in arrayForLocal! {
             arrayM.append(controller(dict: dict))
             //append的元素是controller(dict: dict)的返回值.
         }

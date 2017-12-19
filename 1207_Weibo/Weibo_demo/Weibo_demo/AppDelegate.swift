@@ -20,9 +20,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.backgroundColor = UIColor.black
         window?.rootViewController = WBMainViewController()
-        
+
         window?.makeKeyAndVisible()
+        
+        // 模拟从服务器加载数据
+        loadAppInfo()
         return true
+    }
+    
+    private func loadAppInfo(){
+        // 1. 模拟异步加载
+        DispatchQueue.global().async {
+            //1> 弄假的,用url代替, Swift3.0中, Bundle.main().urlForResource("abc",withExtension:nil)
+            let url = Bundle.main.url(forResource: "demo.json", withExtension: nil)
+            //2> 取到data
+            let data = NSData(contentsOf: url!)
+            //3> 写入沙盒
+            let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]//取0不用解包
+            // 注意, 如果swift中没有的方法, 转化成nsstring找到,转到OC的方法去找, 就一定找得到.
+            let jsonPath = (docDir as NSString).appendingPathComponent("demo.json")
+            
+            let isExist = FileManager.default.fileExists(atPath: jsonPath)
+            if isExist == false{
+                    data?.write(toFile: jsonPath, atomically: true)
+                print("沙盒没有该文件, 新创建")
+            }else{
+                // 即便文件内容变化,只要文件路径不变,都不会再创建.
+                print("沙盒中已经有个该文件....")
+            }
+            
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

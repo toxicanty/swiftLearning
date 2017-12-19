@@ -40,12 +40,30 @@ extension WBMainViewController{
     /// 设置所有子控制器
     private func setupChildControllers(){
         
+        // 1219 20:00 先去沙盒中找, 找不到再从bundle中加载
+        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let jsonPath = (docDir as NSString).appendingPathComponent("demo.json")
+        print("沙盒路径 = \(jsonPath)")
+        // 加载deta
+        var data = NSData(contentsOfFile: jsonPath)
+        
+        // 判断data是否有内容, 如果没有内容说明本地沙盒没有文件.
+        
+        if data == nil{
+            // 从bundle中加载数据
+            let jsonPath = Bundle.main.path(forResource: "demo.json", ofType: nil)
+            data = NSData(contentsOfFile: jsonPath!)
+            
+        }
+
+        // 下面这部分, 如果沙盒中没有获取到从网络获取的数据, 才会继续往下走.
+        
         // 1219 17:30 改成由本地json加载数据
         guard let path = Bundle.main.path(forResource: "demo.json", ofType: nil),
             // 这句拿不到, 1. 路径 2. 加载NSData 3. 反序列化转成数组.
             //let arrayForLocal = NSArray(contentsOfFile: path) as? [[String : Any]]
-           let tempdata = NSData(contentsOfFile: path),
-            let arrayForLocal = try? JSONSerialization.jsonObject(with: tempdata as Data, options: []) as? [[String : Any]]//弱try, data as Data...
+           
+            let array = try? JSONSerialization.jsonObject(with: data! as Data, options: []) as? [[String : Any]]//弱try, data as Data...
             else{
             return
         }
@@ -78,7 +96,7 @@ extension WBMainViewController{
 //     (data as NSData).write(toFile: "/Users/toxicanty/Desktop/demo.json", atomically: true)
 /**********************************************************************************/
         var arrayM = [UIViewController]()
-        for dict in arrayForLocal! {
+        for dict in array! {
             arrayM.append(controller(dict: dict))
             //append的元素是controller(dict: dict)的返回值.
         }

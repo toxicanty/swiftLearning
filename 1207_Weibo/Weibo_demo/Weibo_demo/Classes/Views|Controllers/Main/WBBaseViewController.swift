@@ -10,7 +10,7 @@ import UIKit
 
 class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-   private var logon = false
+   private var logon = true
     
     // 没有登录,就不创建
     var tableView: UITableView?

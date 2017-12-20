@@ -22,6 +22,16 @@ class WBHomeViewController: WBBaseViewController {
     // MARK: - 延迟加载数据
     override func loadData() {
         
+        // 1220 先在此处测试网络访问是否ok
+        let URLString = "https://api.weibo.com/2/statuses/home_timeline.json"
+        let params = ["access_token":"2.00PHMqeGabEFaE0d8e7bcc84SM3F9D"]
+        
+        WBNetworkManager.shared.get(URLString, parameters: params, progress: nil, success: { (_, json) in
+            print("json-------\(json ?? "xxxxx错误xxxxx")")
+        }) { (_, error) in
+            print("网络请求失败---\(error)")
+        }
+        
         // 模拟延迟加载数据 ,异步
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             // 尾随闭包

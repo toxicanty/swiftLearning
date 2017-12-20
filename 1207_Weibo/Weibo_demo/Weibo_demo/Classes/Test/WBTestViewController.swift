@@ -23,7 +23,7 @@ class WBTestViewController: WBBaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    override func setupUI(){
+    override func setupTableView(){
         
         // 这里不写了, super.setupUI()去处理
         //view.backgroundColor = UIColor.yw_random()
@@ -40,7 +40,7 @@ class WBTestViewController: WBBaseViewController {
         navItem.rightBarButtonItem = UIBarButtonItem(title: "下一个",  target: self, action: #selector(nextVC))
         
         
-        super.setupUI()
+        super.setupTableView()
     }
 }
 

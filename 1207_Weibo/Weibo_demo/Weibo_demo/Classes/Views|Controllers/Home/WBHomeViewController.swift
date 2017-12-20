@@ -50,8 +50,9 @@ class WBHomeViewController: WBBaseViewController {
         
     }
     
-    override func setupUI(){
-        super.setupUI()
+    override func setupTableView(){
+        
+        super.setupTableView()
         
         // 注释掉:下面优化
         //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", style: .plain, target: self, action: #selector(showFriend))

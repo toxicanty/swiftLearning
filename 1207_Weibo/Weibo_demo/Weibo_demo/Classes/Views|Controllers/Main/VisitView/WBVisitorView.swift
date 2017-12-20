@@ -12,6 +12,15 @@ import UIKit
 /// 访客视图
 class WBVisitorView: UIView {
     
+    // 1219 21:30 因为注册和登录按钮,耦合性不强, 所以直接可以开放给baseViewController使用...
+    // 不一定非要通过代理和闭包来处理时间
+    /// 注册按钮
+     lazy var registerButton:UIButton = UIButton.yw_textButton("注册", fontSize: 16, normalColor: UIColor.orange, highlightedColor: UIColor.black, backgroundImageName: "common_button_white_disable")
+    
+    /// 登录按钮
+     lazy var loginButton:UIButton = UIButton.yw_textButton("登录", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.black, backgroundImageName: "common_button_white_disable")
+    
+    
     // 1219 14:30 考虑每个控制器都有一个访客视图,但是它们显示的图片不一样
     // 可以设计一个外部访问的字典, 通过在不同控制器给该字典设置值, 来定制visitorView的显示
     //'lazy' may not be used on a computed property/lazy不可以用于计算属性.
@@ -75,11 +84,7 @@ class WBVisitorView: UIView {
     private lazy var houseIconView:UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
     /// 提示标签(返回值是instance)
     private lazy var tipLabel:UILabel = UILabel.yw_label(withText: "关注一些人,看看这里有什么惊喜", fontSize: 14, color: UIColor.gray)
-    /// 注册按钮
-    private lazy var registerButton:UIButton = UIButton.yw_textButton("注册", fontSize: 16, normalColor: UIColor.orange, highlightedColor: UIColor.black, backgroundImageName: "common_button_white_disable")
     
-    /// 登录按钮
-    private lazy var loginButton:UIButton = UIButton.yw_textButton("登录", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.black, backgroundImageName: "common_button_white_disable")
     
 }
 

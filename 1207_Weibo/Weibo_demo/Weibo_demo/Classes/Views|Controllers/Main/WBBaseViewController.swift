@@ -44,7 +44,10 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         }
     }
     
-   func setupUI(){
+    // 1219 22:00 因为其他控制器继承时使用的都是登录后的(首页-登录后-导航栏-好友按钮)
+    // 实际上都是setupTableView中的复用
+    // 所以考虑将setupUI私有, 将setupVisitView开放
+  private func setupUI(){
         view.backgroundColor = UIColor.yw_random()
         setupNav()
     
@@ -67,9 +70,13 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         navigationBar.items = [navItem]
         // 添加导航条
         view.addSubview(navigationBar)
-        // 设置渲染颜色(原来的太亮了,透明效果不太好看)
+        // 1>设置整个背景的渲染颜色(原来的太亮了,透明效果不太好看)
         navigationBar.barTintColor = UIColor.yw_color(withHex: 0xF6F6F6)
         //navigationBar.setTitleVerticalPositionAdjustment(10, for: UIBarMetrics.default)
+        // 2>设置navBar字体颜色
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.darkGray]
+        // 3>设置系统文字颜色
+        navigationBar.tintColor = UIColor.orange
     }
     // MARK: - 设置没有登录时的界面
     func setupVisitView(){
@@ -78,8 +85,16 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         let visitorVIew = WBVisitorView(frame: view.bounds)
         view.insertSubview(visitorVIew, belowSubview: navigationBar)
         
-        // 设置访客视图信息
+        // 1> 设置访客视图信息
         visitorVIew.visitorInfo = vistorInfoDict//基类控制器获得的字典,传递给vistorVIew处理.
+        
+        // 2> 给注册登录按钮添加事件
+        visitorVIew.loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
+        visitorVIew.registerButton.addTarget(self, action: #selector(registAction), for: .touchUpInside)
+        
+        // 3> 设置导航条按钮
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(registAction))
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(loginAction))
     }
     // MARK: - 设置tableView
     func setupTableView(){
@@ -105,10 +120,7 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         // 添加监听方法
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        
     }
-    
-    
     
     // MARK: - tableView的代理方法
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -147,6 +159,17 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     
+}
+
+extension WBBaseViewController{
+    
+    @objc func loginAction(){
+        print(#function)
+    }
+    
+    @objc func registAction(){
+        print(#function)
+    }
 }
 
 // 不在允许在extension中去实现代理方法

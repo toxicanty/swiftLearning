@@ -109,7 +109,11 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         // swift3.0中的实现
         //automaticallyAdjustsScrollViewInsets = false
         // swift4.0中的实现
-        tableView?.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentBehavior.never
+        if #available(iOS 11.0, *) {
+            tableView?.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentBehavior.never
+        } else {
+            // Fallback on earlier versions
+        }
         
         // 挡住的显示出来(bottom是把底部的位置显示出来,不要被tabbar挡住)
         tableView?.contentInset = UIEdgeInsets(top: navigationBar.bounds.height, left: 0, bottom: tabBarController?.tabBar.bounds.height ?? 0, right: 0)

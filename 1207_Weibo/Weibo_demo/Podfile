@@ -1,0 +1,29 @@
+# 带井号的是注释, 可以删掉
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'Weibo_demo' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+# 在这里添加要导入的三方框架
+pod "AFNetworking"
+pod "SDWebImage"
+pod "YYModel"
+pod "FMDB"
+pod "SVProgressHUD"
+pod "pop"
+
+  # Pods for Weibo_demo
+
+  target 'Weibo_demoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'Weibo_demoUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

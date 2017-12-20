@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Weibo_demo/Classes/Views|Controllers/Main/WBBaseViewController.swift"
-            timestampString = "535385777.68764"
+            timestampString = "535438752.293837"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
@@ -97,6 +97,38 @@
             endingLineNumber = "51"
             landmarkName = "loadAppInfo()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weibo_demo.AppDelegate.(loadAppInfo in _E53A251097E8FE784758FEA5C9BD70CB)() -&gt; ()"
+                  moduleName = "Weibo_demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toxicanty/Desktop/githubUploadTest/1207_Weibo/Weibo_demo/Weibo_demo/AppDelegate.swift"
+                  timestampString = "535438551.178265"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "149">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Weibo_demo.AppDelegate.(loadAppInfo in _E53A251097E8FE784758FEA5C9BD70CB)() -&gt; ()"
+                  moduleName = "Weibo_demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/toxicanty/Desktop/githubUploadTest/1207_Weibo/Weibo_demo/Weibo_demo/AppDelegate.swift"
+                  timestampString = "535438551.181196"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "2025">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

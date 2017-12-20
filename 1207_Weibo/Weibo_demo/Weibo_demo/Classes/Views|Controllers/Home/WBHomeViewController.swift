@@ -26,11 +26,19 @@ class WBHomeViewController: WBBaseViewController {
         let URLString = "https://api.weibo.com/2/statuses/home_timeline.json"
         let params = ["access_token":"2.00PHMqeGabEFaE0d8e7bcc84SM3F9D"]
         
-        WBNetworkManager.shared.get(URLString, parameters: params, progress: nil, success: { (_, json) in
-            print("json-------\(json ?? "xxxxx错误xxxxx")")
-        }) { (_, error) in
-            print("网络请求失败---\(error)")
+        /***********************************************/
+//        WBNetworkManager.shared.get(URLString, parameters: params, progress: nil, success: { (_, json) in
+//            print("json-------\(json ?? "xxxxx错误xxxxx")")
+//        }) { (_, error) in
+//            print("网络请求失败---\(error)")
+//        }
+        /***********************************************/
+        
+        //1220 19:30 改用封装方法来处理
+        WBNetworkManager.shared.request(urlString: URLString, parameters: params) { (json, isSuccess) in//请求的内容, 成功否
+            print("json ==== \(json ?? "")")
         }
+        
         
         // 模拟延迟加载数据 ,异步
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {

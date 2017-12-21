@@ -40,7 +40,7 @@ class WBHomeViewController: WBBaseViewController {
         
         //1220 22:30 优化2:进一步优化后,处理更简单,直接得到微博数组
         WBNetworkManager.shared.statusList { (statuses, isSuccess) in
-            
+            print("网络请求成功")
         }
         
         

@@ -16,11 +16,15 @@ extension WBNetworkManager {
     func statusList(completion:@escaping (_:[[String:Any]]?, _:Bool)->()){
         
         let URLString = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let params = ["access_token":"2.00PHMqeGabEFaE0d8e7bcc84SM3F9D"]
+        //let params = ["access_token":"2.00PHMqeGabEFaE0d8e7bcc84SM3F9D"]
         
-        request(urlString: URLString, parameters: params) { (json, isSuccess) in
+//        request(urlString: URLString, parameters: params) { (json, isSuccess) in
+//            let result = (json as! NSDictionary)["statuses"] as? [[String:Any]]
+        
+        // 1221 改成获取了token的请求方法
+        tokenRequest(urlString: URLString, parameters: nil) { (json, isSuccess) in
             let result = (json as! NSDictionary)["statuses"] as? [[String:Any]]
-            
+        
             completion(result, isSuccess)
         }
     }

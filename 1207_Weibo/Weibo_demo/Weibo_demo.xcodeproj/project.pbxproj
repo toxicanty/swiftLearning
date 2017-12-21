@@ -40,6 +40,7 @@
 		69033A351FE2518700A2F517 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69033A341FE2518700A2F517 /* UIBarButtonItem+Extension.swift */; };
 		69961FC01FE7F24900C3405F /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69961FBF1FE7F24900C3405F /* WBVisitorView.swift */; };
 		69961FC21FE9146200C3405F /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 69961FC11FE9146100C3405F /* demo.json */; };
+		69AB36B71FEAA2C300C6697F /* WBNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AB36B61FEAA2C300C6697F /* WBNetworkManager+Extension.swift */; };
 		69B85DB21FEA372B00ADA8E6 /* WBNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B85DB11FEA372B00ADA8E6 /* WBNetworkManager.swift */; };
 		73F8C5FE2955222C6C67C2F6 /* Pods_Weibo_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D6301E12E20623783437695 /* Pods_Weibo_demoTests.framework */; };
 		D1BA685EE8AA2D586FB99739 /* Pods_Weibo_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4A036DC4EEBDBF081FDCFE /* Pods_Weibo_demo.framework */; };
@@ -123,6 +124,7 @@
 		69033A341FE2518700A2F517 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		69961FBF1FE7F24900C3405F /* WBVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
 		69961FC11FE9146100C3405F /* demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo.json; sourceTree = "<group>"; };
+		69AB36B61FEAA2C300C6697F /* WBNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		69B85DB11FEA372B00ADA8E6 /* WBNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNetworkManager.swift; sourceTree = "<group>"; };
 		9B4A036DC4EEBDBF081FDCFE /* Pods_Weibo_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weibo_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1451F61C95AA149131A1DC6 /* Pods-Weibo_demoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo_demoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo_demoTests/Pods-Weibo_demoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				69B85DB11FEA372B00ADA8E6 /* WBNetworkManager.swift */,
+				69AB36B61FEAA2C300C6697F /* WBNetworkManager+Extension.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				69B85DB21FEA372B00ADA8E6 /* WBNetworkManager.swift in Sources */,
 				69033A281FE0CB2E00A2F517 /* UIViewController+CZAddition.m in Sources */,
 				690339FB1FD9953E00A2F517 /* WBDiscoverViewController.swift in Sources */,
+				69AB36B71FEAA2C300C6697F /* WBNetworkManager+Extension.swift in Sources */,
 				690339F91FD9952E00A2F517 /* WBHomeViewController.swift in Sources */,
 				69033A331FE1741F00A2F517 /* WBTestViewController.swift in Sources */,
 				690339BB1FD98E2200A2F517 /* AppDelegate.swift in Sources */,

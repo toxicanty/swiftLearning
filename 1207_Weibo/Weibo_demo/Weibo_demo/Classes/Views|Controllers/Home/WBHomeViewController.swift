@@ -23,8 +23,7 @@ class WBHomeViewController: WBBaseViewController {
     override func loadData() {
         
         // 1220 先在此处测试网络访问是否ok
-        let URLString = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let params = ["access_token":"2.00PHMqeGabEFaE0d8e7bcc84SM3F9D"]
+        
         
         /***********************************************/
 //        WBNetworkManager.shared.get(URLString, parameters: params, progress: nil, success: { (_, json) in
@@ -34,9 +33,14 @@ class WBHomeViewController: WBBaseViewController {
 //        }
         /***********************************************/
         
-        //1220 19:30 改用封装方法来处理
-        WBNetworkManager.shared.request(urlString: URLString, parameters: params) { (json, isSuccess) in//请求的内容, 成功否
-            print("json ==== \(json ?? "")")
+        //1220 19:30 优化1:改用封装方法来处理
+//        WBNetworkManager.shared.request(urlString: URLString, parameters: params) { (json, isSuccess) in//请求的内容, 成功否
+//            print("json ==== \(json ?? "")")
+//        }
+        
+        //1220 22:30 优化2:进一步优化后,处理更简单,直接得到微博数组
+        WBNetworkManager.shared.statusList { (statuses, isSuccess) in
+            
         }
         
         

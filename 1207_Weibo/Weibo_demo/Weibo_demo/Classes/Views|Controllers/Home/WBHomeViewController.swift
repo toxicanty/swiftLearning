@@ -13,7 +13,10 @@ private let cellId = "cellId"
 
 class WBHomeViewController: WBBaseViewController {
     
-    private lazy var statusList = [String]()//懒加载空数组,()表示空.
+//    private lazy var statusList = [String]()//懒加载空数组,()表示空.
+    // 1221 改成viewModel加载数据
+    private lazy var listModel = WBStatusListViewModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +25,19 @@ class WBHomeViewController: WBBaseViewController {
     // MARK: - 延迟加载数据
     override func loadData() {
         
-        // 1220 先在此处测试网络访问是否ok
-        
+        listModel.loadStatus { (isSuccess) in
+            // 加载完成数据后,停止控件
+            self.refreshControl?.endRefreshing()
+            // 恢复标记
+            self.isPullup = false
+            
+            // 刷新数据
+            self.tableView?.reloadData()
+            print("刷新表格")
+        }
         
         /***********************************************/
+        // 1220 先在此处测试网络访问是否ok
 //        WBNetworkManager.shared.get(URLString, parameters: params, progress: nil, success: { (_, json) in
 //            print("json-------\(json ?? "xxxxx错误xxxxx")")
 //        }) { (_, error) in
@@ -42,34 +54,6 @@ class WBHomeViewController: WBBaseViewController {
         WBNetworkManager.shared.statusList { (statuses, isSuccess) in
             print("网络请求成功")
         }
-        
-        
-        // 模拟延迟加载数据 ,异步
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-            // 尾随闭包
-            for i in 0..<15{
-                if self.isPullup{
-                    // 上拉,数据追加到底部
-                    self.statusList.append("上拉\(i)")
-                }else{
-                   self.statusList.insert(i.description + "下拉", at: 0)//在闭包里,加上self.
-                }
-
-            }
-            
-            // 加载完成数据后,停止控件
-            self.refreshControl?.endRefreshing()
-            // 恢复标记
-            self.isPullup = false
-            
-            // 刷新数据
-            self.tableView?.reloadData()
-            print("刷新表格")
-            
-            
-        }
-        
-        
     }
     
     override func setupTableView(){
@@ -111,7 +95,7 @@ class WBHomeViewController: WBBaseViewController {
     
     // swift3.0中,可以写在extension中. swift4.0中,必须写在这里
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return statusList.count
+        return listModel.statusList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -119,7 +103,7 @@ class WBHomeViewController: WBBaseViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         // 2. 设置cell
-        cell.textLabel?.text = statusList[indexPath.row]
+        cell.textLabel?.text = listModel.statusList[indexPath.row].text
         
         // 3. 返回cell
         return cell

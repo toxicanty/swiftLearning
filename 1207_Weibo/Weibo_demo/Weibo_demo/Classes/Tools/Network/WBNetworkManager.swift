@@ -45,7 +45,7 @@ class WBNetworkManager: AFHTTPSessionManager {
         // 2> 设置参数字典(一定有值, 所以可以强行解包)
         parameters!["access_token"] = token
         
-        // 调用request
+        // 调用request(这里的parameters就是回调获取的json字符串)
         request(urlString: urlString, parameters: parameters, completion: completion)
     }
     

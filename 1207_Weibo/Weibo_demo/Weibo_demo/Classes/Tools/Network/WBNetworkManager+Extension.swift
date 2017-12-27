@@ -32,3 +32,28 @@ extension WBNetworkManager {
     
     
     }
+
+
+// 还是网络相关的, 所以在这里处理
+extension WBNetworkManager {
+    
+    // 加载accessToken
+    func loadAccessToken(code:String){
+        
+        let urlString = "https://api.weibo.com/oauth2/access_token"
+        let param = ["client_id" : WBAPPKey,
+                     "client_secret" : WBAPPSecret,
+                     "grant_type" : "authorization_code",
+                     "code" : code,
+                     "redirect_uri":WBRedirectURI
+        ]
+        
+        // 发起网络骑牛
+        request(method: .POST, urlString: urlString, parameters: param) { (json, isSuccess) in
+            
+            print("发起网络骑牛 === \(json)")
+        }
+        
+        
+    }
+}

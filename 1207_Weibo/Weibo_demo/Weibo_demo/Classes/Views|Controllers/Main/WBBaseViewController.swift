@@ -10,7 +10,7 @@ import UIKit
 
 class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-   private var logon = true
+   //private var logon = true
     
     // 没有登录,就不创建
     var tableView: UITableView?
@@ -35,7 +35,7 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         // MARK: - 设置界面
         setupUI()
         // MARK: - 加载数据
-        loadData()
+        WBNetworkManager.shared.userLogon ? loadData() :()
     }
     
     override var title: String?{
@@ -52,7 +52,7 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         setupNav()
     
     //setupTableView()
-    logon ? setupTableView() : setupVisitView()
+    (WBNetworkManager.shared.userLogon) ? setupTableView() : setupVisitView()
     
     // automaticallyAdjustsScrollViewInsets' was deprecated in iOS 11.0: Use UIScrollView's contentInsetAdjustmentBehavior instead
     
@@ -142,7 +142,7 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         //2.
         let section = tableView.numberOfSections - 1
         
-        print("section -- \(section)")
+        //print("section -- \(section)")
         
         if(row < 0 || section < 0) {
         return
@@ -157,7 +157,7 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
             isPullup = true
             
             // 开始刷新
-            loadData()
+            WBNetworkManager.shared.userLogon ? loadData():()
         }
         
     }
@@ -168,7 +168,9 @@ class WBBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
 extension WBBaseViewController{
     
     @objc func loginAction(){
-        print(#function)
+        print(#function)//用户登录
+        // 1227发送通知,swift3.0中是default()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: nil)
     }
     
     @objc func registAction(){

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications//用户授权相关1229
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        if #available(iOS 10.0, *) {//10以后的系统,多.carPlay
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound, .carPlay, .sound]) { (success, error) in
+                
+                print("授权"+(success ? "成功" : "失败"))
+            }
+        } else {
+            // Fallback on earlier versions
+            // 1229 17:00 取得用户授权显示通知[商法的提示条/声音/BadgeNumber]
+            let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
         
         //sleep(2)
         window = UIWindow()

@@ -23,8 +23,12 @@ class WBNetworkManager: AFHTTPSessionManager {
     static let shared = WBNetworkManager()
     
     /// 访问令牌, 所有的网络请求都基于此令牌(登录除外)
-    var accessToken:String? = "2.00PHMqeGabEFaE0d8e7bcc84SM3F9D"
-    
+    //var accessToken:String? = "2.00PHMqeGabEFaE0d8e7bcc84SM3F9D"
+    // test
+    var accessToken:String? = nil
+    var userLogon : Bool { // 计算型属性, 这里没有等号, 最后没有(),相当于省略了get
+        return accessToken != nil
+    }
     
     /// 专门负责拼接token的网络请求方法
     func tokenRequest(method: WBHTTPMethod = .GET, urlString: String, parameters:[String: Any]?,completion: @escaping (_ json: Any?,_ isSuccess: Bool)->()){

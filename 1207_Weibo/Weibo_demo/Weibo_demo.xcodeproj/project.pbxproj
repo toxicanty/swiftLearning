@@ -38,6 +38,8 @@
 		69033A301FE10E2600A2F517 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69033A2F1FE10E2600A2F517 /* Bundle+extension.swift */; };
 		69033A331FE1741F00A2F517 /* WBTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69033A321FE1741F00A2F517 /* WBTestViewController.swift */; };
 		69033A351FE2518700A2F517 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69033A341FE2518700A2F517 /* UIBarButtonItem+Extension.swift */; };
+		690C77171FF3C69D0021FB6D /* WeiboCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690C77161FF3C69D0021FB6D /* WeiboCommon.swift */; };
+		690C771A1FF3CA430021FB6D /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690C77191FF3CA430021FB6D /* WBOAuthViewController.swift */; };
 		69961FC01FE7F24900C3405F /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69961FBF1FE7F24900C3405F /* WBVisitorView.swift */; };
 		69961FC21FE9146200C3405F /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 69961FC11FE9146100C3405F /* demo.json */; };
 		69AB36B71FEAA2C300C6697F /* WBNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AB36B61FEAA2C300C6697F /* WBNetworkManager+Extension.swift */; };
@@ -124,6 +126,8 @@
 		69033A2F1FE10E2600A2F517 /* Bundle+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Bundle+extension.swift"; path = "../../../../../../reactionTestDemoEvolution1/reactionTestDemo/reactionTestDemo/Bundle+extension.swift"; sourceTree = "<group>"; };
 		69033A321FE1741F00A2F517 /* WBTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBTestViewController.swift; sourceTree = "<group>"; };
 		69033A341FE2518700A2F517 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		690C77161FF3C69D0021FB6D /* WeiboCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiboCommon.swift; sourceTree = "<group>"; };
+		690C77191FF3CA430021FB6D /* WBOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
 		69961FBF1FE7F24900C3405F /* WBVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
 		69961FC11FE9146100C3405F /* demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo.json; sourceTree = "<group>"; };
 		69AB36B61FEAA2C300C6697F /* WBNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetworkManager+Extension.swift"; sourceTree = "<group>"; };
@@ -284,6 +288,7 @@
 		690339EF1FD993B700A2F517 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				690C77181FF3CA280021FB6D /* OAuth */,
 				69961FC11FE9146100C3405F /* demo.json */,
 				69961FBE1FE7F1AB00C3405F /* VisitView */,
 				690339F21FD9944D00A2F517 /* WBMainViewController.swift */,
@@ -299,6 +304,7 @@
 				69B85DB01FEA36FA00ADA8E6 /* Network */,
 				69033A2E1FE10D8400A2F517 /* Extensions */,
 				69033A001FE0CB2E00A2F517 /* Additions */,
+				690C77161FF3C69D0021FB6D /* WeiboCommon.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -362,6 +368,14 @@
 				69033A321FE1741F00A2F517 /* WBTestViewController.swift */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		690C77181FF3CA280021FB6D /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				690C77191FF3CA430021FB6D /* WBOAuthViewController.swift */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 		69961FBE1FE7F1AB00C3405F /* VisitView */ = {
@@ -718,6 +732,7 @@
 				69033A241FE0CB2E00A2F517 /* NSString+CZPath.m in Sources */,
 				69033A2A1FE0CB2E00A2F517 /* NSAttributedString+CZAdditon.m in Sources */,
 				690339FF1FD9956100A2F517 /* WBProfileViewController.swift in Sources */,
+				690C77171FF3C69D0021FB6D /* WeiboCommon.swift in Sources */,
 				69033A201FE0CB2E00A2F517 /* UIScreen+CZAddition.m in Sources */,
 				69033A231FE0CB2E00A2F517 /* NSString+CZBase64.m in Sources */,
 				69033A271FE0CB2E00A2F517 /* NSObject+CZRuntime.m in Sources */,
@@ -725,6 +740,7 @@
 				690339F31FD9944D00A2F517 /* WBMainViewController.swift in Sources */,
 				69B85DB21FEA372B00ADA8E6 /* WBNetworkManager.swift in Sources */,
 				69033A281FE0CB2E00A2F517 /* UIViewController+CZAddition.m in Sources */,
+				690C771A1FF3CA430021FB6D /* WBOAuthViewController.swift in Sources */,
 				690339FB1FD9953E00A2F517 /* WBDiscoverViewController.swift in Sources */,
 				69AB36B71FEAA2C300C6697F /* WBNetworkManager+Extension.swift in Sources */,
 				690339F91FD9952E00A2F517 /* WBHomeViewController.swift in Sources */,

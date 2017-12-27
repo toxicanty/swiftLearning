@@ -25,15 +25,17 @@ class WBHomeViewController: WBBaseViewController {
     // MARK: - 延迟加载数据
     override func loadData() {
         
-        listModel.loadStatus { (isSuccess) in
+        listModel.loadStatus(pullup: self.isPullup) { (isSuccess,shouldRefresh) in
             // 加载完成数据后,停止控件
             self.refreshControl?.endRefreshing()
             // 恢复标记
             self.isPullup = false
             
-            // 刷新数据
-            self.tableView?.reloadData()
-            print("刷新表格")
+            if shouldRefresh {
+                // 刷新数据
+                self.tableView?.reloadData()
+                print("刷新表格")
+            }// 其他不需要刷新表格
         }
         
         /***********************************************/
@@ -51,9 +53,10 @@ class WBHomeViewController: WBBaseViewController {
 //        }
         
         //1220 22:30 优化2:进一步优化后,处理更简单,直接得到微博数组
-        WBNetworkManager.shared.statusList { (statuses, isSuccess) in
-            print("网络请求成功")
-        }
+        //1227 这里就不用了
+//        WBNetworkManager.shared.statusList(since_id: 0,max_id: 0) { (statuses, isSuccess) in
+//            print("网络请求成功")
+//        }
     }
     
     override func setupTableView(){
